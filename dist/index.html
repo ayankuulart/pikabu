@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+<style>
+    #root {
+        max-width: 400px;
+        margin: 40px auto;
+        background: #D0D0D0;
+        border-radius: 3px;
+    }
+
+    #root:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+
+    .cell {
+        float: left;
+    }
+
+    .cell:after {
+        content: "";
+        display: block;
+    }
+
+    .piece {
+        box-sizing: border-box;
+        background-repeat: no-repeat;
+        height: 100%;
+        border-radius: 3px;
+        border-top: 1px solid #D8FFBC;
+        border-left: 1px solid #D8FFBC;
+        border-bottom: 1px solid #83BE54;
+        border-right: 1px solid #83BE54;
+    }
+
+    .piece:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+</style>
+<script src="bundle.js"></script>
+
+</html>
