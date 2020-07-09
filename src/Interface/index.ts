@@ -5,6 +5,8 @@ export interface ITable {
   randomize: () => void;
   lengthX: number;
   lengthY: number;
+  restoreWithRelations: (relations: number[]) => void;
+  setRelations: (relations: number[]) => void;
   update: (newCells: ICell[]) => void;
 }
 
@@ -15,8 +17,8 @@ export interface ICell {
   table: ITable;
   ref: HTMLDivElement;
   piece: IPiece;
-  nextPiece: IPiece;
-  swap: () => void;
+  needUpdate: boolean;
+  swap: (emptyCellId: number) => void;
 }
 
 export interface IPiece {
@@ -28,4 +30,17 @@ export interface IPiece {
 
 export interface IGameParameters {
   size: number;
+  translateAnimDuration: number,
+  blockedCellAnimDuration: number,
+  picUrl: string,
+  waitBeforeRender: number
+}
+
+export interface IGame {
+  table: ITable;
+  containerWidth: number;
+}
+
+declare global {
+  interface Window { game: IGame; }
 }

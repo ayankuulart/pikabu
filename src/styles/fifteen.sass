@@ -1,0 +1,47 @@
+#root
+  max-width: 400px
+  margin: 40px auto
+
+.fifteen-wrap
+  background: #D0D0D0
+  border-radius: 3px
+  padding-bottom: 100%
+
+.cell
+  float: left
+
+.empty
+  padding-bottom: 100%
+
+.piece
+  box-sizing: border-box
+  background-repeat: no-repeat
+  height: 100%
+  border-radius: 3px
+  border-top: 1px solid #D8FFBC
+  border-left: 1px solid #D8FFBC
+  border-bottom: 1px solid #83BE54
+  border-right: 1px solid #83BE54
+  transform: initial
+  
+  &:after
+    content: ""
+    display: block
+    padding-bottom: 100%
+
+.cell > .piece.anim
+  animation: move 300ms ease-in-out
+
+@keyframes move
+  0%
+    transform: translate(0, 0)
+  20%
+    transform: translate(-5px, 0)
+  40%
+    transform: translate(5px, 0)
+  60%
+    transform: translate(-3px, 0)
+  80%
+    transform: translate(3px, 0)
+  100%
+    transform: translate(1px, 0)

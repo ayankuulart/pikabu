@@ -1,16 +1,25 @@
-import { Cell } from "./Entity/Cell";
-import { Game } from "./Entity/Game";
+import { Game } from "./Modules/Game";
+import { IGameParameters } from "./Interface/index";
+import  "./styles/main.sass";
 
-const defaultParams = {
-  size: 5
+const defaultParams: IGameParameters = {
+  size: 5,
+  translateAnimDuration: 400,
+  blockedCellAnimDuration: 600,
+  waitBeforeRender: 1000,
+  picUrl: "url(https://cs.pikabu.ru/images/jobseeker/logo2.png)"
 }
 
-document.addEventListener("DOMContentLoaded", event => {
-  const rootElement = document.getElementById("root");
+document.addEventListener("DOMContentLoaded", () => {
+  const rootElement = document.createElement("div");
+  rootElement.id = "root";
+
+  document.body.appendChild(rootElement);
+
+  Game.params = defaultParams;
   const game = new Game();
 
-  game.init(rootElement, defaultParams);
+  game.init(rootElement);
 
-  // @ts-ignore
   window.game = game;
 });
